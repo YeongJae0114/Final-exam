@@ -162,7 +162,7 @@ def solution(r1, r2):
 
 # print(solution(2,3))
 
-
+#
 # Q.5 10점
 #
 # 0 또는 양의 정수가 주어졌을 때,
@@ -187,12 +187,11 @@ def solution(r1, r2):
 def solution(numbers):
     # 정수형 numbers를 문자열로 바꾸고 list형태로 저장
     list_num = list(map(str, numbers))
-     
+
     list_num.sort(key=lambda x: x * 3, reverse=True)
 
     answer = str(int("".join(list_num)))
     return answer
- 
-print(solution([3, 30, 34, 5, 9]))
- 
 
+
+print(solution([3, 30, 34, 5, 9]))
