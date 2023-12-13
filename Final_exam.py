@@ -24,8 +24,10 @@ import time
 def solution(my_string, target):
     # target 문자열이 my_strung에 포함되지 않는다면 다음 문장 실행
     if target not in my_string:
+       # 부분문자열이 아니라면 answer = 0
         answer = 0
     else:  # 반대의 경우 다음 문장 실행
+        # 부분문자열이라면 answer = 1
         answer = 1
 
     return answer
@@ -62,16 +64,19 @@ def solution(letter):
 
     # 공백을 기준으로 문자열을 나누기
     letter = letter.split()
+    # 정답을 저장할 문자열
     answer = ""
 
-    for mos in letter:  # 나눈 문자열을 반복해서 모스부호 딕셔너리와 비교
-        for key, value in morse.items():  # key값과 비교
+    for mos in letter:  # 입력 받은 문자열(나눈상태)을 반복해서 모스부호 딕셔너리와 비교
+        # 딕셔너리의 key값 value값에 접근한다.
+        for key, value in morse.items():   
+            # 입력한 letter를 하나씩 key와 비교
             if mos == key:
                 answer += value  # 문자열에 알파벳 추가
-    return answer
+    return answer # 정답을 리턴
 
-#내 좌우명
-# print(solution('.-.. --- ...- . -- -.-- ... . .-.. ..-.'))
+# 내 좌우명 lovemyself
+print(solution('.-.. --- ...- . -- -.-- ... . .-.. ..-.'))
 
 
 # Q.3 10점
@@ -94,7 +99,7 @@ def solution(age):
     age = list(map(int, str(age)))
     # 아스키코드 10진수 : a ~ j -> 97 ~ 106
     
-    answer = "" # 변환한 행성의 나이를 저장할 변수
+    answer = "" # 변환한 행성의 나이를 저장할 문자열
     for i in age:
         # 변환할 숫자에 아스키 코드 값을 더해서 다시 문자로 변환
         answer += chr(i + 97)
@@ -130,7 +135,7 @@ def solution(r1, r2):
             y_r1 = math.sqrt(r1**2 - i**2) # y_r1 = (r1**2 - i**2)**(0.5)
         else:
             y_r1 = 0
-        
+        # 큰 원인 y_r2를 내림, 작은 원 y_r1 올림 (길이로 정수형 좌표 개수를 구하기 위해)
         answer += math.floor(y_r2) - math.ceil(y_r1) + 1 # floor : 내림, ceil : 올림
     return answer * 4
 
